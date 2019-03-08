@@ -1,0 +1,21 @@
+nav {
+    font-family: 'Merriweather', serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+p {
+    font-family: 'Merriweather', serif;
+    font-size: 60px;
+}
+
+#top-half {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#bottom-half {
+    margin: auto;
+    width: 40%;
+}

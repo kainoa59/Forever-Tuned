@@ -1,17 +1,50 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Forever Tuned</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="logic.js"></script>
 </head>
+
 <body>
-    <h1>Hello Tuned!</h1>
-    <h1>hello</h1>
-    
+    <div class="sticky-top">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Forever Tu<i class="fas fa-headphones-alt"></i>ed</span>
+        </nav>
+    </div>
+    <p class="text-center">Tune out your <span id="tune-out"></span></p>
+    <div id="top-half">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <input type="artist" class="form-control" id="inputartist" placeholder="Enter artist name">
+                </div>
+                <div class="form-group">
+                    <input type="song" class="form-control" id="inputsong" placeholder="Enter song name">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="bottom-half">
+        <div class="container">
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Top Hits</button>
+        </div>
+    </div>
 </body>
+
 </html>
