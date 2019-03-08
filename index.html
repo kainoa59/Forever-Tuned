@@ -18,31 +18,60 @@
 
 <body>
     <div class="sticky-top">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-secondary">
             <span class="navbar-brand mb-0 h1">Forever Tu<i class="fas fa-headphones-alt"></i>ed</span>
         </nav>
     </div>
-    <p class="text-center">Tune out your <span id="tune-out"></span></p>
-    <div id="top-half">
-        <div class="container">
-            <form>
-                <div class="form-group">
-                    <input type="artist" class="form-control" id="inputartist" placeholder="Enter artist name">
+    <div class="container" id="home-page">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Get your <span id="tune-out"></span> on</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="top-half">
+                    <form>
+                        <div class="form-group">
+                            <input type="artist" class="form-control" id="inputartist" placeholder="Enter artist name">
+                        </div>
+                        <div class="form-group">
+                            <input type="song" class="form-control" id="inputsong" placeholder="Enter song name">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input type="song" class="form-control" id="inputsong" placeholder="Enter song name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bottom-half">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">Top Hits</button>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div id="bottom-half">
-        <div class="container">
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Top Hits</button>
+    </div>
+    <!-- Second Page -->
+    <div class="container">
+        <div id="results-page">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>search history</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>video</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>lyrics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

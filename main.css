@@ -1,4 +1,4 @@
-nav {
+.navbar-brand {
     font-family: 'Merriweather', serif;
     font-size: 30px;
     letter-spacing: 1px;
@@ -9,6 +9,10 @@ p {
     font-size: 60px;
 }
 
+.fa-headphones-alt {
+    font-size: 23px;
+}
+
 #top-half {
     margin: auto;
     width: 50%;
@@ -17,5 +21,6 @@ p {
 
 #bottom-half {
     margin: auto;
-    width: 40%;
+    width: 50%;
+    padding-top: 50px;
 }
