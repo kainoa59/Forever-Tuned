@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
 
-    function start() {
-        $("#results-page").hide();
-    }
-    start();
+    // function start() {
+    //     $("#results-page").hide();
+    // }
+    // start();
 
     var artist = "Halsey";
     var song = "Without Me";

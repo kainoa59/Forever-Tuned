@@ -7,6 +7,7 @@
 p {
     font-family: 'Merriweather', serif;
     font-size: 60px;
+    margin-top: 30px;
 }
 
 .fa-headphones-alt {
@@ -24,3 +25,13 @@ p {
     width: 50%;
     padding-top: 50px;
 }
+
+#video-card {
+    margin-bottom: 30px;
+}
+
+.fixed-bottom {
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+

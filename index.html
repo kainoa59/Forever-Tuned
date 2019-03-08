@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <input type="song" class="form-control" id="inputsong" placeholder="Enter song name">
                         </div>
-                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        <button id="submit" type="submit" class="btn btn-secondary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="bottom-half">
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Top Hits</button>
+                    <button id="top-hits" type="button" class="btn btn-secondary btn-lg btn-block">Top Hits</button>
                 </div>
             </div>
         </div>
@@ -57,17 +57,32 @@
         <div id="results-page">
             <div class="row">
                 <div class="col-md-3">
-                    <p>search history</p>
+                        <button id="home" type="button" class="btn btn-secondary">Home</button>
+                        <p>search history</p>
+                    <div class="fixed-bottom">
+                        <button id="top" type="button" class="btn btn-secondary">Scroll to top</button>
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>video</p>
+                            <div id="video-card" class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title"><span id="video-info"></span></h5>
+                                </div>
+                                <img style="height: 200px" src="https://via.placeholder.com/300" class="card-img-top"
+                                    alt="...">
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <p>lyrics</p>
+                        <div id="lyrics-card" class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Lyrics:</h5>
+                                </div>
+                                <p>bla bla bla</p>
+                            </div>
                         </div>
                     </div>
                 </div>
