@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     function start() {
         $("#results-page").hide();
     }
@@ -31,4 +30,42 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log(response);
     });
+
+    $("#submit").on("click", function () { 
+        event.preventDefault();
+        function results() {
+            $("#home-page").hide();
+            $("#results-page").show();
+        }
+        results();
+    });
+
+    $("#top-hits").on("click", function () { 
+        event.preventDefault();
+        function results() {
+            $("#home-page").hide();
+            $("#results-page").show();
+        }
+        results();
+    });
+
+    $("#home").on("click", function () { 
+        event.preventDefault();
+        function goHome() {
+            $("#home-page").show();
+            $("#results-page").hide();
+        }
+        goHome();
+    });
+
+    $("#top").on("click", function () { 
+        event.preventDefault();
+        function top() {
+            $("#results-page").scrollTop(0);
+        }
+        top();
+    });
+
+
+
 })
