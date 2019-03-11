@@ -34,6 +34,8 @@ $(document).ready(function () {
             Song_Name: song
         };
 
+        $("#song-info").text(artist + ", " + song);
+
         database.ref().push(newSearch);
 
         var apiKeysound = "a4af9743e17e832c4290086100d426eb"
@@ -55,7 +57,8 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            $("#lyrics-info").text(JSON.stringify(response.result.track.text));
+            $("#lyrics-info").text(response.result.track.text);
+
         });
 
         $("#inputartist").val("");
