@@ -1,5 +1,20 @@
 $(document).ready(function () {
 
+    var groove = ["sing", "dance", "chill", "groove", "tune", "soul"];
+
+    var showGroove;
+
+    var count = 0;
+
+    function showGroove(){
+        $("#tune-out").text(groove[count]);
+        count++;
+        if (count === groove.length){
+            count = 0;
+        }
+    }
+    setInterval(showGroove, 2000);
+
     function start() {
         $("#results-page").hide();
     }
@@ -111,11 +126,24 @@ $(document).ready(function () {
     $("#top").on("click", function () {
         event.preventDefault();
         function top() {
-            $("#results-page").scrollTop(0);
+            window.scrollTo(0, 0);
         }
         top();
     });
+    database.ref().on("child_added", function (childSnapshot) {
+        // console.log(childSnapshot.val());
+        var artist = childSnapshot.val().Artist_Name;
+        var song = childSnapshot.val().Song_Name;
 
+        // console.log(artist);
+        // console.log(song);
+        var newRow = $("<tr>").append(
+            $("<td>").text(artist),
+            $("<td>").text(song),
+        )
+
+        $("#table > tbody").append(newRow);
+    });
 
 
 })
