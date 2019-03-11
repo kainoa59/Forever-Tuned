@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <script src="logic.js"></script>
 </head>
 
@@ -57,8 +58,8 @@
         <div id="results-page">
             <div class="row">
                 <div class="col-md-3">
-                        <button id="home" type="button" class="btn btn-secondary">Home</button>
-                        <p>search history</p>
+                    <button id="home" type="button" class="btn btn-secondary">Home</button>
+                    <p>search history</p>
                     <div class="fixed-bottom">
                         <button id="top" type="button" class="btn btn-secondary">Scroll to top</button>
                     </div>
@@ -68,10 +69,11 @@
                         <div class="col-md-12">
                             <div id="video-card" class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title"><span id="video-info"></span></h5>
+                                    <h5 class="card-title"><span id="song-info"></span></h5>
                                 </div>
-                                <img style="height: 200px" src="https://via.placeholder.com/300" class="card-img-top"
-                                    alt="...">
+                                <div class="card-text">
+                                    <span id="video-info"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +83,9 @@
                                 <div class="card-header">
                                     <h5 class="card-title">Lyrics:</h5>
                                 </div>
-                                <p>bla bla bla</p>
+                                <div class="card-text">
+                                    <span id="lyrics-info"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
