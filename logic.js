@@ -44,7 +44,10 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            $("#video-info").text(JSON.stringify(response.results.trackmatches.track[0].url));
+            var video = $("#video-info");
+            video.attr('src', response.results.trackmatches.track[0].url);
+
+            
         });
 
         var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
@@ -55,7 +58,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            $("#lyrics-info").text(JSON.stringify(response.result.track.text));
+            $("#lyrics-info").text(response.result.track.text);
         });
 
         $("#inputartist").val("");
