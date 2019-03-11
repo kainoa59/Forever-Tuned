@@ -34,6 +34,8 @@ $(document).ready(function () {
             Song_Name: song
         };
 
+        $("#song-info").text(artist + ", " + song);
+
         database.ref().push(newSearch);
 
         var apiKeysound = "a4af9743e17e832c4290086100d426eb"

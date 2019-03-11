@@ -54,12 +54,21 @@
     </div>
     </div>
     <!-- Second Page -->
-    <div class="container">
+    <div class="container" id="results-page">
         <div id="results-page">
             <div class="row">
                 <div class="col-md-3">
                     <button id="home" type="button" class="btn btn-secondary">Home</button>
-                    <p>search history</p>
+                    <table id="table" class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Artist Name:</th>
+                                <th scope="col">Song Name:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                     <div class="fixed-bottom">
                         <button id="top" type="button" class="btn btn-secondary">Scroll to top</button>
                     </div>
@@ -83,8 +92,10 @@
                                 <div class="card-header">
                                     <h5 class="card-title">Lyrics:</h5>
                                 </div>
-                                <div class="card-text">
-                                    <span id="lyrics-info"></span>
+                                <div class="container" id="lyrics-spacing">
+                                    <div class="card-text">
+                                        <span id="lyrics-info"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
