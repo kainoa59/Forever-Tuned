@@ -65,6 +65,8 @@ $(document).ready(function () {
              console.log(response);
              var video = $("#video-info");
              video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+             video.attr({ width: '600px', height: '300px' });
+             video.css({left: '50%'});
 
          });
 
