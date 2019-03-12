@@ -19,6 +19,7 @@ $(document).ready(function () {
         $("#results-page").hide();
     }
     start();
+
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyAC9ea5OQi6SgC_qrunpuIU9fcLns2hx3o",
@@ -53,41 +54,19 @@ $(document).ready(function () {
 
         database.ref().push(newSearch);
 
-
-        // Load the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
         
-        var youTubeSrc = "https://www.youtube.com/embed?listType=search&list=" + artist + song;
+        var apiKeysound = "AIzaSyBYp_njPW6hIPoVLUI_kihLhAA8TkRXRfE"
+        var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "+" + song + "&key=" + apiKeysound; 
 
-        tag.src = youTubeSrc
+        $.ajax({
+            url: queryURLsound,
+             method: "GET"
+         }).then(function (response) {
+             console.log(response);
+             var video = $("#video-info");
+             video.attr('src', "https://youtu.be/" + response.items[0].id.videoId);
 
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Replace the 'ytplayer' element with an <iframe> and
-        // YouTube player after the API code downloads.
-        var player;
-        function onYouTubePlayerAPIReady() {
-            player = new YT.Player('ytplayer', {
-                height: '360',
-                width: '640',
-                videoId: 'M7lc1UVf-VE'
-            });
-        }
-
-        // var apiKeysound = "a4af9743e17e832c4290086100d426eb"
-        // var queryURLsound = "http://ws.audioscrobbler.com/2.0/?method=track.search&artist=" + artist + "&track=" + song + "&limit=1&api_key=" + apiKeysound + "&format=json";
-
-        // $.ajax({
-        //     url: queryURLsound,
-        //     method: "GET"
-        // }).then(function (response) {
-        //     console.log(response);
-        //     var video = $("#video-info");
-        //     video.attr('src', response.results.trackmatches.track[0].url);
-
-
-        // });
+         });
 
         var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
         var queryURLlyrics = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + song + "?apikey=" + apiKeylyrics;
