@@ -64,7 +64,7 @@ $(document).ready(function () {
          }).then(function (response) {
              console.log(response);
              var video = $("#video-info");
-             video.attr('src', "https://youtu.be/" + response.items[0].id.videoId);
+             video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
 
          });
 
