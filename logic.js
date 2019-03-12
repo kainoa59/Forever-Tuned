@@ -138,6 +138,13 @@ $(document).ready(function () {
                 video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
                 //  video.attr({ width: '600px', height: '300px' });
 
+                $("#song-info").text("Artist: " + randomA + " " + " " + " Song: " + randomS);
+
+                var newRow2 = $("<tr>").append(
+                    $("<td>").text(randomA),
+                    $("<td>").text(randomS),
+                );
+                $("#table > tbody").append(newRow2);
             });
         });
 
