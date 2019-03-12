@@ -1,7 +1,7 @@
 body {
     background-image: url("http://getwallpapers.com/wallpaper/full/f/9/0/1041779-free-download-music-backgrounds-1920x1080-for-desktop.jpg");
     background-size: cover;
-
+    
 }
 .navbar-brand {
     font-family: 'Merriweather', serif;
@@ -36,13 +36,14 @@ p {
 }
 
 .fixed-bottom {
-    margin-left: 5%;
+    margin-left: 90%;
     margin-bottom: 5%;
 }
 
 #results-page {
     margin: 20px;
 }
+
 
 #table {
     margin-top: 20px;
@@ -59,7 +60,9 @@ p {
 }
 
 #tune-out{
-    color: gray;
+    font-family: 'Sniglet', cursive;
+    font-weight: bold;
+    font-size: 80px;
 }
 
 #get-your{
