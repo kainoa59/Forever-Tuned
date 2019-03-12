@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var groove = ["sing", "dance", "chill", "groove", "tune", "soul"];
+    var groove = ["SING", "DANCE", "CHILL", "GROOVE", "TUNE", "SOUL"];
 
     var showGroove;
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
             Song_Name: song
         };
 
-        $("#song-info").text(artist + ", " + song);
+        $("#song-info").text("Artist: " + artist + " " + " " + " Song: " + song);
 
         database.ref().push(newSearch);
 
