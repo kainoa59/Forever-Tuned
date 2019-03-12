@@ -63,6 +63,9 @@ p {
     font-family: 'Oswald', cursive;
     font-weight: bold;
     font-size: 80px;
+    background: -webkit-linear-gradient(#0D46CA, #01EDFE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #get-your{

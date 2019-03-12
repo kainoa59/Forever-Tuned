@@ -6,10 +6,10 @@ $(document).ready(function () {
 
     var count = 0;
 
-    function showGroove(){
+    function showGroove() {
         $("#tune-out").text(groove[count]);
         count++;
-        if (count === groove.length){
+        if (count === groove.length) {
             count = 0;
         }
     }
@@ -54,21 +54,20 @@ $(document).ready(function () {
 
         database.ref().push(newSearch);
 
-        
+
         var apiKeysound = "AIzaSyBYp_njPW6hIPoVLUI_kihLhAA8TkRXRfE"
-        var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "+" + song + "&key=" + apiKeysound; 
+        var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "+" + song + "&key=" + apiKeysound;
 
         $.ajax({
             url: queryURLsound,
-             method: "GET"
-         }).then(function (response) {
-             console.log(response);
-             var video = $("#video-info");
-             video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
-             video.attr({ width: '600px', height: '300px' });
-             video.css({left: '50%'});
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var video = $("#video-info");
+            video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+            //  video.attr({ width: '600px', height: '300px' });
 
-         });
+        });
 
         var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
         var queryURLlyrics = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + song + "?apikey=" + apiKeylyrics;
@@ -93,6 +92,55 @@ $(document).ready(function () {
             $("#results-page").show();
         }
         results();
+        $("#video-info").attr('src', "");
+        $("#song-info").text("");
+        $("#lyrics-info").html("");
+        // top 40 songs below vvvvvvv
+        var apiKeysound = "a4af9743e17e832c4290086100d426eb"
+        var queryURLsound = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=" + apiKeysound + "&format=json"
+        $.ajax({
+            url: queryURLsound,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var loopEnd = Math.floor(Math.random() * 50 + 1);
+            for (var j = 0; j < loopEnd; j++) {
+                j++;
+                var randomArtist = response.tracks.track[j].artist.name;
+                var randomSong = response.tracks.track[j].name;
+            }
+            console.log(randomArtist);
+            console.log(randomSong);
+            console.log(j);
+            var randomA = randomArtist
+            var randomS = randomSong
+
+            var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
+            var queryURLlyrics = "https://orion.apiseeds.com/api/music/lyric/" + randomA + "/" + randomS + "?apikey=" + apiKeylyrics;
+
+            $.ajax({
+                url: queryURLlyrics,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                $("#lyrics-info").text(response.result.track.text);
+            });
+
+            var apiKeysound = "AIzaSyBYp_njPW6hIPoVLUI_kihLhAA8TkRXRfE"
+            var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + randomA + "+" + randomS + "&key=" + apiKeysound;
+
+            $.ajax({
+                url: queryURLsound,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                var video = $("#video-info");
+                video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+                //  video.attr({ width: '600px', height: '300px' });
+
+            });
+        });
+
     });
 
     $("#home").on("click", function () {
@@ -122,9 +170,9 @@ $(document).ready(function () {
             $("<td>").text(artist),
             $("<td>").text(song),
         );
-        
+
         $("#table > tbody").append(newRow);
-        
+
         // $(".clickable-row").click(function(){
         //     function results() {
         //         $("#home-page").hide();
@@ -132,8 +180,8 @@ $(document).ready(function () {
         //     }
         //     results();
         //     console.log("hello");
-            
+
         // });
     });
-        
+
 })
