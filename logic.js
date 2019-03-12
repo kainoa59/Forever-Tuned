@@ -116,13 +116,22 @@ $(document).ready(function () {
 
         // console.log(artist);
         // console.log(song);
-        var newRow = $("<tr>").append(
+        var newRow = $("<tr class='clickable-row' id='rowButton'>").append(
             $("<td>").text(artist),
             $("<td>").text(song),
-        )
-
+        );
+        
         $("#table > tbody").append(newRow);
+        
+        // $(".clickable-row").click(function(){
+        //     function results() {
+        //         $("#home-page").hide();
+        //         $("#results-page").show();
+        //     }
+        //     results();
+        //     console.log("hello");
+            
+        // });
     });
-
-
+        
 })
