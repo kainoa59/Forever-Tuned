@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var groove = ["SING", "DANCE", "CHILL", "GROOVE", "TUNE", "SOUL"];
+    var groove = ["SING", "DANCE", "MELODY", "CHILL", "MUSIC", "GROOVE", "TUNE", "SOUL"];
 
     var showGroove;
 
@@ -45,17 +45,18 @@ $(document).ready(function () {
         var artist = $("#inputartist").val().trim();
         var song = $("#inputsong").val().trim();
 
+        console.log(artist);
+        console.log(song);
+
         var newSearch = {
             Artist_Name: artist,
             Song_Name: song
         };
-
-        $("#song-info").text("Artist: " + artist + " " + " " + " Song: " + song);
-
+        
         database.ref().push(newSearch);
 
 
-        var apiKeysound = "AIzaSyBYp_njPW6hIPoVLUI_kihLhAA8TkRXRfE"
+        var apiKeysound = "AIzaSyB2O4ThEf_uHBHsj7Fy8BCpMYZPZa0sHcw"
         var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "+" + song + "&key=" + apiKeysound;
 
         $.ajax({
@@ -65,7 +66,6 @@ $(document).ready(function () {
             console.log(response);
             var video = $("#video-info");
             video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
-            //  video.attr({ width: '600px', height: '300px' });
 
         });
 
@@ -78,10 +78,29 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             $("#lyrics-info").text(response.result.track.text);
+
+            $("#artist-info").text(" " + artist);
+            $("#song-info").text(" " + song);
+         
         });
 
         $("#inputartist").val("");
         $("#inputsong").val("");
+
+        database.ref().on("child_added", function (childSnapshot) {
+            var artist = childSnapshot.val().Artist_Name;
+            var song = childSnapshot.val().Song_Name;
+        
+            
+            
+            var newRow = $("<tr>").append(
+                $("<td>").text(artist),
+                $("<td>").text(song),
+            );
+        
+            $("#table > tbody").append(newRow);
+        
+        });
 
     });
 
@@ -92,62 +111,78 @@ $(document).ready(function () {
             $("#results-page").show();
         }
         results();
+
         $("#video-info").attr('src', "");
         $("#song-info").text("");
         $("#lyrics-info").html("");
-        // top 40 songs below vvvvvvv
-        var apiKeysound = "a4af9743e17e832c4290086100d426eb"
-        var queryURLsound = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=" + apiKeysound + "&format=json"
+
+        
+
+        var topArtistsPicked = ["Sam Smith & Normani", "Dean Lewis", "Kacey Musgraves", "Drake", "Ava Max", "Post Malone", "5 Seconds of Summer", "Lauren Daigle"];
+        var topSongPicked = ["Dancing With A Stranger", "Be Alright", "Slow Burn", "Nonstop", "Sweet but Psycho" ,"Better Now", "Youngblood", "You Say"];
+
+        var loopEnd = Math.floor(Math.random() * topArtistsPicked.length);
+        console.log(loopEnd);
+        var randomArtist = topArtistsPicked[loopEnd];
+        var randomSong = topSongPicked[loopEnd]; 
+       
+        console.log(randomArtist);
+        console.log(randomSong);
+
+        var newSearch = {
+            Artist_Name: randomArtist,
+            Song_Name: randomSong
+        };
+
+        database.ref().push(newSearch);
+        var randomA = randomArtist
+        var randomS = randomSong
+
+
+
+        var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
+        var queryURLlyrics = "https://orion.apiseeds.com/api/music/lyric/" + randomA + "/" + randomS + "?apikey=" + apiKeylyrics;
+
         $.ajax({
-            url: queryURLsound,
+            url: queryURLlyrics,
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            var loopEnd = Math.floor(Math.random() * 50 + 1);
-            for (var j = 0; j < loopEnd; j++) {
-                j++;
-                var randomArtist = response.tracks.track[j].artist.name;
-                var randomSong = response.tracks.track[j].name;
-            }
-            console.log(randomArtist);
-            console.log(randomSong);
-            console.log(j);
-            var randomA = randomArtist
-            var randomS = randomSong
-
-            var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
-            var queryURLlyrics = "https://orion.apiseeds.com/api/music/lyric/" + randomA + "/" + randomS + "?apikey=" + apiKeylyrics;
-
-            $.ajax({
-                url: queryURLlyrics,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-                $("#lyrics-info").text(response.result.track.text);
-            });
-
-            var apiKeysound = "AIzaSyBYp_njPW6hIPoVLUI_kihLhAA8TkRXRfE"
-            var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + randomA + "+" + randomS + "&key=" + apiKeysound;
-
-            $.ajax({
-                url: queryURLsound,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-                var video = $("#video-info");
-                video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
-                //  video.attr({ width: '600px', height: '300px' });
-
-                $("#song-info").text("Artist: " + randomA + " " + " " + " Song: " + randomS);
-
-                var newRow2 = $("<tr>").append(
-                    $("<td>").text(randomA),
-                    $("<td>").text(randomS),
-                );
-                $("#table > tbody").append(newRow2);
-            });
+            $("#lyrics-info").text(response.result.track.text);
         });
 
+        var apiKeysound2 = "AIzaSyB2O4ThEf_uHBHsj7Fy8BCpMYZPZa0sHcw"
+        var queryURLsound2 = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + randomA + "+" + randomS + "&key=" + apiKeysound2;
+
+        $.ajax({
+            url: queryURLsound2,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var video = $("#video-info");
+            video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+            //  video.attr({ width: '600px', height: '300px' });
+
+            $("#artist-info").text(" " + randomA);
+            $("#song-info").text(" " + randomS);
+
+        });
+        
+        database.ref().on("child_added", function (childSnapshot) {
+            // console.log(childSnapshot.val());
+            var artist = childSnapshot.val().Artist_Name;
+            var song = childSnapshot.val().Song_Name;
+        
+            // console.log(artist);
+            // console.log(song);
+            var newRow2 = $("<tr>").append(
+                $("<td>").text(artist),
+                $("<td>").text(song),
+            );
+        
+            $("#table > tbody").append(newRow2);
+        
+        });
     });
 
     $("#home").on("click", function () {
@@ -155,10 +190,11 @@ $(document).ready(function () {
         function goHome() {
             $("#home-page").show();
             $("#results-page").hide();
+            location.reload(true);
         }
         goHome();
     });
-
+    
     $("#top").on("click", function () {
         event.preventDefault();
         function top() {
@@ -166,29 +202,9 @@ $(document).ready(function () {
         }
         top();
     });
-    database.ref().on("child_added", function (childSnapshot) {
-        // console.log(childSnapshot.val());
-        var artist = childSnapshot.val().Artist_Name;
-        var song = childSnapshot.val().Song_Name;
 
-        // console.log(artist);
-        // console.log(song);
-        var newRow = $("<tr class='clickable-row' id='rowButton'>").append(
-            $("<td>").text(artist),
-            $("<td>").text(song),
-        );
+});
 
-        $("#table > tbody").append(newRow);
 
-        // $(".clickable-row").click(function(){
-        //     function results() {
-        //         $("#home-page").hide();
-        //         $("#results-page").show();
-        //     }
-        //     results();
-        //     console.log("hello");
 
-        // });
-    });
 
-})
