@@ -113,38 +113,9 @@ p {
         top: -3;
     }
     
-    /* th {
-        height: 60px;
-    } */
-
     tbody{
         clear: both;
     }
-    /* .table{
-        display: block;
-        height: 300px;
-        overflow-y: scroll;
-    }
-     */
-/* 
-     .table-fixed thead {
-         width: 100%;
-     }
-
-     .table-fixed tbody {
-         height: 300px;
-         overflow-y: auto;
-         width: 100%;
-     }
-
-     .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-        display: block;
-     }
-
-     .table-fixed tbody td, .table-fixed thead > tr > th {
-         float: right;
-     } */
-
    
     #navMo {
         Margin-left: 18%;
@@ -169,3 +140,10 @@ p {
         margin-bottom: 7%;
     }
 }
+small {
+    font-size: 20px;
+    color: white;
+    background-color: #65B9A3;
+    width: 150px;
+}
+
