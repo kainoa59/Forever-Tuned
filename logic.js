@@ -69,7 +69,7 @@ $(document).ready(function () {
         database.ref().push(newSearch);
 
 
-        var apiKeysound = "AIzaSyB2O4ThEf_uHBHsj7Fy8BCpMYZPZa0sHcw"
+        var apiKeysound = "AIzaSyCWQd2YptyeXkhlZij9Ti9QMS4llBn7-t0"
         var queryURLsound = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "+" + song + "&key=" + apiKeysound;
 
         $.ajax({
@@ -164,7 +164,7 @@ $(document).ready(function () {
             $("#lyrics-info").text(response.result.track.text);
         });
 
-        var apiKeysound2 = "AIzaSyB2O4ThEf_uHBHsj7Fy8BCpMYZPZa0sHcw"
+        var apiKeysound2 = "AIzaSyCWQd2YptyeXkhlZij9Ti9QMS4llBn7-t0"
         var queryURLsound2 = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + randomA + "+" + randomS + "&key=" + apiKeysound2;
 
         $.ajax({
