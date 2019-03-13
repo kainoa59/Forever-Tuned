@@ -16,6 +16,18 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <script src="logic.js"></script>
+    <Script>
+    function formValidation() {
+        var validateSong, text;
+        var validateArtist, text;
+        validateSong = $("#inputsong").val();
+        validateArtist = $("#inputartist").val();
+        if (validateArtist === "" || validateSong === "") {
+            $("#small-artist-input").text("Input not valid");
+            return false;
+        }
+    }
+    </Script>
 </head>
 
 <body>
@@ -35,10 +47,11 @@
                 <div id="top-half">
                     <form>
                         <div class="form-group">
-                            <input type="artist" class="form-control" id="inputartist" placeholder="Enter artist name">
+                            <input type="artist" class="form-control" id="inputartist" placeholder="Enter artist name" onClick="return empty()">
+                            <small id="small-artist-input" class="form-text text-muted"></small>
                         </div>
                         <div class="form-group">
-                            <input type="song" class="form-control" id="inputsong" placeholder="Enter song name">
+                            <input type="song" class="form-control" id="inputsong" placeholder="Enter song name" required>
                         </div>
                         <button id="submit" type="submit" class="btn btn-secondary">Submit</button>
                     </form>
