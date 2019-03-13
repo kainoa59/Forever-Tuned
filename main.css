@@ -46,7 +46,7 @@ p {
 
 .fixed-bottom {
     margin-left: 90%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
 }
 
 #results-page {
@@ -92,6 +92,54 @@ p {
     margin: 0px;
 }
 
+@media screen and (max-width: 414px) {
+    
+    #home {
+        margin-left: 31%;
+    }
+    #tune-out {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    
+    .table-fixed {
+        overflow-y: auto;
+        height: 300px;
+        display: block;
+    }
+
+    .table-fixed th {
+        position: sticky;
+        top: -3;
+    }
+    
+    tbody{
+        clear: both;
+    }
+   
+    #navMo {
+        Margin-left: 18%;
+    }
+    #get-your {
+        margin-top: 3%;
+        font-size: 50px;
+    }
+    #tune-out {
+        font-size: 90px;
+    }
+
+    .fixed-bottom {
+        margin-left: 31%;
+    }
+
+    #results-page {
+        margin-left: 1%;
+    }
+
+    #lyrics-spacing {
+        margin-bottom: 7%;
+    }
+}
 small {
     font-size: 20px;
     color: white;
