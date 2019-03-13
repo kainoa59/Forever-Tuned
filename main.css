@@ -3,6 +3,11 @@ body {
     background-size: cover;
     
 }
+
+#homePageContent {
+    margin-top: 5%;
+}
+
 .navbar-brand {
     font-family: 'Merriweather', serif;
     font-size: 30px;
@@ -17,6 +22,10 @@ p {
 
 .fa-headphones-alt {
     font-size: 23px;
+}
+
+#top {
+    margin: 5%;
 }
 
 #top-half {
@@ -41,7 +50,7 @@ p {
 }
 
 #results-page {
-    margin: 20px;
+    margin: 10px;
 }
 
 
@@ -62,17 +71,23 @@ p {
 #tune-out{
     font-family: 'Oswald', cursive;
     font-weight: bold;
-    font-size: 80px;
-    background: -webkit-linear-gradient(#0D46CA, #01EDFE);
+    font-size: 100px;
+    background: -webkit-linear-gradient( #6DD3F8, #1252D1 );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    vertical-align: middle;
 }
 
 #get-your{
     color: white;
+    font-size: 80px;
 }
 
 #video-info{ 
     width: 100%;
     height: 60%;
+}
+
+.card-title {
+    margin: 0px;
 }
