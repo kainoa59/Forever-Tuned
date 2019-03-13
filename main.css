@@ -91,3 +91,11 @@ p {
 .card-title {
     margin: 0px;
 }
+
+small {
+    font-size: 20px;
+    color: white;
+    background-color: #65B9A3;
+    width: 150px;
+}
+

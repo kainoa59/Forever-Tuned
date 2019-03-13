@@ -32,7 +32,10 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
+    
+    
+    
+    
     $("#submit").on("click", function () {
         event.preventDefault();
 
@@ -40,7 +43,17 @@ $(document).ready(function () {
             $("#home-page").hide();
             $("#results-page").show();
         }
-        results();
+        if ($("#inputartist").val() == "" & $("#inputsong").val() == "") {
+            console.log("hello");
+            $("#input-artist-error").text("Required input!")
+            $("#input-song-error").text("Required input!")
+            } else if ($("#inputartist").val() == "") {
+                $("#input-artist-error").text("Required input!")
+            } else if ($("#inputsong").val() == "") {
+                $("#input-song-error").text("Required input!")
+            } else {
+                results();
+            }
 
         var artist = $("#inputartist").val().trim();
         var song = $("#inputsong").val().trim();
