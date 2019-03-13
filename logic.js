@@ -80,6 +80,7 @@ $(document).ready(function () {
             var video = $("#video-info");
             video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
 
+            videoID = response.items[0].id.videoId;
         });
 
         var apiKeylyrics = "uEQ4LMmu0zqIhJMQINQ5Ork44T2IVrJa5jLwcP3IgRaRkfFD8B4YYh70QwUJlZyP"
@@ -94,6 +95,11 @@ $(document).ready(function () {
 
             $("#artist-info").text(" " + artist);
             $("#song-info").text(" " + song);
+            var youtubeLink = $("<a>");
+            youtubeLink.text(" Youtube link");
+            youtubeLink.attr("href", "https://www.youtube.com/watch?v=" + videoID);
+            $("#youtube-link").append(youtubeLink);
+
          
         });
 
