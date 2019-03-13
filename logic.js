@@ -181,9 +181,14 @@ $(document).ready(function () {
             var video = $("#video-info");
             video.attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
             //  video.attr({ width: '600px', height: '300px' });
+            videoID2 = response.items[0].id.videoId;
 
             $("#artist-info").text(" " + randomA);
             $("#song-info").text(" " + randomS);
+            var youtubeLink = $("<a>");
+            youtubeLink.text(" Youtube link");
+            youtubeLink.attr("href", "https://www.youtube.com/watch?v=" + videoID2);
+            $("#youtube-link").append(youtubeLink);
 
         });
         
