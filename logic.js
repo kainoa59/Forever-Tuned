@@ -131,8 +131,8 @@ $(document).ready(function () {
 
         
 
-        var topArtistsPicked = ["Sam Smith & Normani", "Dean Lewis", "Kacey Musgraves", "Drake", "Ava Max", "Post Malone", "5 Seconds of Summer", "Lauren Daigle"];
-        var topSongPicked = ["Dancing With A Stranger", "Be Alright", "Slow Burn", "Nonstop", "Sweet but Psycho" ,"Better Now", "Youngblood", "You Say"];
+        var topArtistsPicked = ["Sam Smith & Normani", "Dean Lewis", "Kacey Musgraves", "Drake", "Ava Max", "Post Malone", "5 Seconds of Summer", "Lauren Daigle", "J. Cole", "Luke Combs"];
+        var topSongPicked = ["Dancing With A Stranger", "Be Alright", "Slow Burn", "Nonstop", "Sweet but Psycho" ,"Better Now", "Youngblood", "You Say", "Middle Child", "Beautiful Crazy"];
 
         var loopEnd = Math.floor(Math.random() * topArtistsPicked.length);
         console.log(loopEnd);
